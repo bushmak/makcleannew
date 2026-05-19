@@ -1,0 +1,164 @@
+[
+  {
+    "id": "panneaux-celles-avant-apres",
+    "src": "/realisations/Panneaux-Celles-AvantApres.png",
+    "title": "Panneaux solaires à Celles",
+    "caption": "Avant / après — nettoyage en profondeur",
+    "location": "Celles",
+    "category": "Panneaux solaires",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "vitres-anvaing",
+    "src": "/realisations/Vitres-Anvaing.png",
+    "title": "Vitres à Anvaing",
+    "caption": "Nettoyage extérieur — résultat net",
+    "location": "Anvaing",
+    "category": "Vitres",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "volets-verts-anvaing",
+    "src": "/realisations/Volets-Verts-Anvaing.png",
+    "title": "Volets verts à Anvaing",
+    "caption": "Nettoyage extérieur — résultat soigné",
+    "location": "Anvaing",
+    "category": "Extérieurs",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "volets-blancs-bassilly",
+    "src": "/realisations/Volets-Blancs-Bassilly.png",
+    "title": "Volets blancs à Bassilly",
+    "caption": "Avant / après — volets nettoyés",
+    "location": "Bassilly",
+    "category": "Extérieurs",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "sol-canalisation",
+    "src": "/realisations/SolCana.jpg",
+    "title": "Sol et canalisation",
+    "caption": "Avant / après nettoyage",
+    "location": "",
+    "category": "Remise en état",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "baignoire",
+    "src": "/realisations/Baignoire.jpg",
+    "title": "Baignoire",
+    "caption": "Avant / après — Résultat MakClean",
+    "location": "",
+    "category": "Salle de bain",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "salle-de-bain-tournai",
+    "src": "/realisations/SDB.jpg",
+    "title": "Salle de bain",
+    "caption": "Avant / après — Tournai & alentours",
+    "location": "Tournai et alentours",
+    "category": "Salle de bain",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "toit-et-bandeau",
+    "src": "/realisations/Toit.jpg",
+    "title": "Toit et bandeau",
+    "caption": "Avant / après — mousse et salissures",
+    "location": "",
+    "category": "Extérieurs",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "appartement-ath",
+    "src": "/realisations/AppartAth.jpg",
+    "title": "Appartement à Ath",
+    "caption": "Avant / après salle de bain et séjour",
+    "location": "Ath",
+    "category": "Fin de bail",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "sejour-ath",
+    "src": "/realisations/SejAth.jpg",
+    "title": "Séjour à Ath",
+    "caption": "Vitres et intérieur nettoyés",
+    "location": "Ath",
+    "category": "Intérieur",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "vitres-ath",
+    "src": "/realisations/VitreAth.jpg",
+    "title": "Vitres à Ath",
+    "caption": "Fenêtre avec film dépoli",
+    "location": "Ath",
+    "category": "Vitres",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "terrasse-vitres-ath",
+    "src": "/realisations/TerrViAth.jpg",
+    "title": "Terrasse et vitres",
+    "caption": "Nettoyage extérieur",
+    "location": "Ath",
+    "category": "Extérieurs",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "four-tournai",
+    "src": "/realisations/FourTournai.jpg",
+    "title": "Four à Tournai",
+    "caption": "Avant / après",
+    "location": "Tournai",
+    "category": "Cuisine",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "salle-de-bain-ath",
+    "src": "/realisations/SDBAth.jpg",
+    "title": "Salle de bain à Ath",
+    "caption": "Nettoyage baignoire",
+    "location": "Ath",
+    "category": "Salle de bain",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "cuisine-ath",
+    "src": "/realisations/CuisineAth.jpg",
+    "title": "Cuisine à Ath",
+    "caption": "Cuisine nettoyée",
+    "location": "Ath",
+    "category": "Cuisine",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "chambre-ath",
+    "src": "/realisations/ChambreAth.jpg",
+    "title": "Chambre à Ath",
+    "caption": "Nettoyage fin de bail",
+    "location": "Ath",
+    "category": "Fin de bail",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "wc",
+    "src": "/realisations/WC.jpg",
+    "title": "Nettoyage WC",
+    "caption": "Avant / après désinfection",
+    "location": "",
+    "category": "Sanitaires",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "sejour-ath-2",
+    "src": "/realisations/SejAth2.jpg",
+    "title": "Séjour à Ath",
+    "caption": "Nettoyage complet",
+    "location": "Ath",
+    "category": "Intérieur",
+    "createdAt": "2026-05-17T00:00:00.000Z"
+  }
+]

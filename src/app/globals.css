@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --blue-primary: #1E40AF;
+  --blue-light: #3B82F6;
+  --blue-dark: #1E3A8A;
+  --blue-pale: #EFF6FF;
+  --white: #FFFFFF;
+  --gray-soft: #F8FAFC;
+  --gray-text: #64748B;
+  --dark: #0F172A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--blue-pale);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-primary);
+  border-radius: 3px;
+}
+
+/* Sélection de texte */
+::selection {
+  background: var(--blue-light);
+  color: FFFFFF;
+}
