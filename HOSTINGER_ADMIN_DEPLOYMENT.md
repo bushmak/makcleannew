@@ -21,17 +21,17 @@ SMTP_NOREPLY_PASS=...
 
 En local, si `ADMIN_PASSWORD` n'est pas défini, le mot de passe de test est `admin`. En production, `ADMIN_PASSWORD` est obligatoire.
 
-## Images réalisations (WebP)
+## Images (WebP uniquement)
 
-Les photos de la galerie sont en **`.webp`** uniquement (`public/realisations/`). Le fichier `data/realisations.json` pointe vers ces chemins.
+Le site attend des fichiers **`.webp`** dans `public/` (logo, services, about, réalisations, etc.). Les JPG/PNG provoquent des images cassées.
 
-Si vous ajoutez d’anciennes images JPG/PNG, convertissez-les avant déploiement :
+Après ajout d’images sources JPG/PNG :
 
 ```bash
-npm run images:realisations-webp
+npm run images:webp
 ```
 
-Puis supprimez les JPG/PNG du dossier `public/realisations/` (l’admin enregistre déjà en WebP).
+Cela convertit tout `public/` et aligne les noms attendus par le code (`logo/logo.webp`, `services/Bureau.webp`, `1200x630.webp`, etc.). L’admin réalisations enregistre déjà en WebP.
 
 ## Dossiers persistants
 
