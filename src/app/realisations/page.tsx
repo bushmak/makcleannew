@@ -9,12 +9,19 @@ export default async function RealisationsPage() {
 
   return (
     <>
+      {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(getRealisationsStructuredData(photos)),
         }}
       />
+
+      {/* H1 SEO invisible */}
+      <h1 className="sr-only">
+        Réalisations Makclean — Nettoyage professionnel à Tournai et dans le Hainaut
+      </h1>
+
       <RealisationsClient photos={photos} />
     </>
   );

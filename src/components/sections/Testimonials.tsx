@@ -46,7 +46,7 @@ const variants = {
       }}
     >
       {/* SEO invisible */}
-      <h2 className="sr-only">Avis et retours clients sur Makclean</h2>
+      <p className="sr-only">Avis et retours clients sur Makclean</p>
       <p className="sr-only">
         Témoignages issus de différents projets. Note moyenne et satisfaction font l’objet d’un suivi interne continu.
       </p>

@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { MessageCircle, FileText, Sparkles, ArrowRight } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 
+import Link from "next/link";
+
 const STEPS = [
   {
     number: "01",
@@ -43,9 +45,9 @@ export default function Process() {
       }}
     >
       {/* SEO invisible */}
-      <h2 className="sr-only">
+      <p className="sr-only">
         Comment fonctionne notre service de nettoyage professionnel en trois étapes simples
-      </h2>
+      </p>
       <p className="sr-only">
         Les trois étapes pour commander une prestation : contact, devis personnalisé, intervention sur site.
       </p>
@@ -85,7 +87,17 @@ export default function Process() {
           badge="Comment ça marche"
           title="Votre devis en 24 h, intervention rapide"
           highlight="intervention rapide"
-          subtitle="Un processus optimisé pour gagner du temps et obtenir des résultats immédiats."
+          subtitle={
+          <>
+          Un processus optimisé pour gagner du temps et obtenir des résultats immédiats.
+          N&apos;hésitez pas à{" "}
+          <Link href="/contact"
+          style={{ color: "#1d4ed8", textDecoration: "underline" }} >
+          nous contacter
+          </Link>
+          .
+          </>
+          }
           align="center"
         />
 

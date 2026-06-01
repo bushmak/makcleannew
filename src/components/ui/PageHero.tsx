@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronRight, Home } from "lucide-react";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 import BrandName, { isBrandNameHighlight } from "@/components/ui/BrandName";
 
 interface Breadcrumb {
@@ -14,7 +14,7 @@ interface Breadcrumb {
 interface PageHeroProps {
   title: string;
   highlight?: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   breadcrumbs?: Breadcrumb[];
 }
 

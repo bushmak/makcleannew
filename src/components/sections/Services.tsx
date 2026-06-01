@@ -18,7 +18,7 @@ export default function Services() {
         overflow: "hidden",
       }}
     >
-      <h2 className="sr-only">Catalogue des prestations Makclean</h2>
+      <p className="sr-only">Catalogue des prestations Makclean</p>
       <p className="sr-only">
         Chaque carte mène vers une page dédiée : détail des missions, avantages et demande de devis pour cette prestation.
       </p>
@@ -161,7 +161,7 @@ function ServiceCard({
       <div style={{ position: "relative", height: "220px", overflow: "hidden" }}>
         <Image
           src={service.imageSrc}
-          alt={`Service de nettoyage : ${service.title}`}
+          alt={`Service Makclean — ${service.title} à Tournai et dans le Hainaut`}
           fill
           style={{ objectFit: "cover", transition: "transform 0.6s ease" }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

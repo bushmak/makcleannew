@@ -1,0 +1,21 @@
+/* Grille principale */
+.zones-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .zones-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Leaflet map container */
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  border-radius: 16px !important;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown, Search, X } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
@@ -235,24 +235,25 @@ export default function FaqContent() {
                                 />
                               </button>
 
-                              <AnimatePresence initial={false}>
-                                {isOpen && (
-                                  <motion.div
-                                    id={`faq-a-${key}`}
-                                    role="region"
-                                    aria-labelledby={`faq-q-${key}`}
-                                    initial={{ height: 0, opacity: 0 }}
-                                    animate={{ height: "auto", opacity: 1 }}
-                                    exit={{ height: 0, opacity: 0 }}
-                                    transition={{ duration: 0.2 }}
-                                    style={{ overflow: "hidden" }}
-                                  >
-                                    <div style={{ padding: "0 0 20px" }}>
-                                      <FaqAnswer item={item} />
-                                    </div>
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
+                              <div
+                                id={`faq-a-${key}`}
+                                role="region"
+                                aria-labelledby={`faq-q-${key}`}
+                                aria-hidden={!isOpen}
+                                style={{
+                                  display: "grid",
+                                  gridTemplateRows: isOpen ? "1fr" : "0fr",
+                                  opacity: isOpen ? 1 : 0,
+                                  transition: "grid-template-rows 0.22s ease, opacity 0.2s ease",
+                                  overflow: "hidden",
+                                }}
+                              >
+                                <div style={{ overflow: "hidden" }}>
+                                  <div style={{ padding: "0 0 20px" }}>
+                                    <FaqAnswer item={item} />
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           );
                         })}

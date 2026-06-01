@@ -23,35 +23,41 @@ export default function AnimatedCard({
   return (
     <motion.div
       className={clsx(
-        "relative bg-white rounded-2xl overflow-hidden transition-shadow duration-300",
+        "relative bg-white rounded-2xl overflow-hidden shadow-md",
+        "transition-shadow duration-150 will-change-transform",
         hover && "cursor-pointer",
-        glow && "hover:shadow-blue-200 hover:shadow-2xl",
+        glow && "hover:shadow-blue-200 hover:shadow-xl",
         bordered && "border border-slate-100",
-        !glow && hover && "hover:shadow-xl",
-        "shadow-md",
+        !glow && hover && "hover:shadow-lg",
         className
       )}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{
-        duration: 0.5,
+        duration: 0.25,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: "easeOut",
       }}
       whileHover={
         hover
           ? {
-              y: -6,
-              transition: { duration: 0.25, ease: "easeOut" },
+              scale: 1.02,
+              rotateX: 1.5,
+              rotateY: -1.5,
+              transition: { duration: 0.15, ease: "easeOut" },
             }
           : undefined
       }
+      style={{
+        transformStyle: "preserve-3d",
+        backfaceVisibility: "hidden",
+      }}
     >
-      {/* Glow border effect */}
+      {/* Glow optimisé */}
       {glow && (
-        <motion.div
-          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 pointer-events-none"
+        <div
+          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"
           style={{
             background:
               "linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(30,64,175,0.04) 100%)",
@@ -59,12 +65,9 @@ export default function AnimatedCard({
         />
       )}
 
-      {/* Top accent line */}
-      <motion.div
-        className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 w-0 group-hover:w-full transition-all duration-500"
-        initial={{ width: 0 }}
-        whileHover={{ width: "100%" }}
-        transition={{ duration: 0.4 }}
+      {/* Top accent line (CSS only) */}
+      <div
+        className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 w-0 group-hover:w-full transition-all duration-300"
       />
 
       {children}

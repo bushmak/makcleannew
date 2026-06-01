@@ -44,20 +44,18 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-blue-700 text-white shadow-lg shadow-blue-700/30 hover:bg-blue-800 hover:shadow-xl",
+      "bg-blue-600 text-white shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:shadow-xl",
 
     secondary:
-      "bg-white text-blue-700 border border-blue-200 shadow-md hover:bg-blue-50",
+      "bg-white text-blue-700 border border-blue-300 shadow-md hover:bg-blue-50",
 
     outline:
-      "border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white",
+      "border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white",
 
     ghost:
-      "text-blue-700 hover:bg-blue-50",
+      "text-blue-700 hover:bg-blue-100",
   };
 
-  // 🔥 Padding beaucoup plus large pour éviter tout collage
-  // + largeur minimale pour garder les boutons larges même sur courts textes
   const sizes = {
     sm: "px-8 py-2 text-[11px] min-h-[38px] min-w-[120px]",
     md: "px-12 py-3 text-sm min-h-[46px] min-w-[200px]",
@@ -79,36 +77,23 @@ export default function Button({
 
   const content = (
     <>
-      {/* shimmer */}
-      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 text-[13px]" />
+      {/* shimmer adouci */}
+      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
 
       {loading && <Loader2 className="w-5 h-5 animate-spin absolute" />}
 
-      {/* Contenu centré ; icône positionnée en absolu sans recouvrir le texte */}
+      {/* Nouveau layout : flex + gap = plus aucun chevauchement */}
       <span
         className={clsx(
           "flex w-full items-center justify-center gap-3 px-4",
           size === "sm" && "text-[12px]",
-          icon === "left" && "pl-18",
-          // Add extra right padding to keep the text centered while giving the icon more space
-          icon === "right" && "pr-24",
           loading && "opacity-0"
         )}
       >
+        {icon === "left" && !loading && Icon}
         {children}
+        {icon === "right" && !loading && Icon}
       </span>
-
-      {!loading && icon === "left" && (
-        <span className="absolute left-10 flex items-center justify-center pointer-events-none">
-          {Icon}
-        </span>
-      )}
-
-      {!loading && icon === "right" && (
-        <span className="absolute right-1 flex items-center justify-center pointer-events-none">
-          {Icon}
-        </span>
-      )}
     </>
   );
 

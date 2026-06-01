@@ -63,8 +63,11 @@ export async function POST(req: NextRequest) {
       communeOther,
       honeypot,
       humanConfirm,
+      rgpdConsent,
       submittedAt,
     } = await req.json();
+
+    const consentGiven = Boolean(humanConfirm || rgpdConsent);
 
     // ── Honeypot ──
     if (honeypot && honeypot.length > 0) {
@@ -79,9 +82,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!humanConfirm) {
+    if (!consentGiven) {
       return NextResponse.json(
-        { error: "Merci de confirmer l'envoi du formulaire." },
+        { error: "Merci d'accepter la politique de confidentialité avant d'envoyer." },
         { status: 400 },
       );
     }

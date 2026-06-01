@@ -40,12 +40,53 @@ export default function Home() {
     },
   };
 
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Makclean",
+    description: "Entreprise de nettoyage professionnel à Tournai et dans le Hainaut",
+    url: "https://www.makclean.be",
+    telephone: "+32489125099",
+    email: "info@makclean.be",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Place de Montroeul(MB) 22/D",
+      addressLocality: "Frasnes-lez-Anvaing",
+      postalCode: "7911",
+      addressCountry: "BE",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 50.6076,
+      longitude: 3.5628,
+    },
+    openingHours: ["Mo-Fr 08:00-18:00", "Sa 09:00-14:00"],
+    priceRange: "€€",
+    areaServed: "Hainaut, Belgique",
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=61586183621567",
+      "https://www.instagram.com/makclean.officiel",
+    ],
+  };
+
   return (
     <main>
+      {/* JSON-LD WebPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+
+      {/* JSON-LD LocalBusiness */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+
+      {/* H1 SEO invisible */}
+      <h1 className="sr-only">
+        Makclean — Nettoyage professionnel à Tournai et dans le Hainaut
+      </h1>
 
       <Navbar />
       <Hero />

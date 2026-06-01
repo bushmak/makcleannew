@@ -1,7 +1,7 @@
 [
   {
     "id": "panneaux-celles-avant-apres",
-    "src": "/realisations/Panneaux-Celles-AvantApres.png",
+    "src": "/realisations/Panneaux-Celles-AvantApres.webp",
     "title": "Panneaux solaires à Celles",
     "caption": "Avant / après — nettoyage en profondeur",
     "location": "Celles",
@@ -10,7 +10,7 @@
   },
   {
     "id": "vitres-anvaing",
-    "src": "/realisations/Vitres-Anvaing.png",
+    "src": "/realisations/Vitres-Anvaing.webp",
     "title": "Vitres à Anvaing",
     "caption": "Nettoyage extérieur — résultat net",
     "location": "Anvaing",
@@ -19,7 +19,7 @@
   },
   {
     "id": "volets-verts-anvaing",
-    "src": "/realisations/Volets-Verts-Anvaing.png",
+    "src": "/realisations/Volets-Verts-Anvaing.webp",
     "title": "Volets verts à Anvaing",
     "caption": "Nettoyage extérieur — résultat soigné",
     "location": "Anvaing",
@@ -28,7 +28,7 @@
   },
   {
     "id": "volets-blancs-bassilly",
-    "src": "/realisations/Volets-Blancs-Bassilly.png",
+    "src": "/realisations/Volets-Blancs-Bassilly.webp",
     "title": "Volets blancs à Bassilly",
     "caption": "Avant / après — volets nettoyés",
     "location": "Bassilly",
@@ -37,7 +37,7 @@
   },
   {
     "id": "sol-canalisation",
-    "src": "/realisations/SolCana.jpg",
+    "src": "/realisations/SolCana.webp",
     "title": "Sol et canalisation",
     "caption": "Avant / après nettoyage",
     "location": "",
@@ -46,7 +46,7 @@
   },
   {
     "id": "baignoire",
-    "src": "/realisations/Baignoire.jpg",
+    "src": "/realisations/Baignoire.webp",
     "title": "Baignoire",
     "caption": "Avant / après — Résultat MakClean",
     "location": "",
@@ -55,7 +55,7 @@
   },
   {
     "id": "salle-de-bain-tournai",
-    "src": "/realisations/SDB.jpg",
+    "src": "/realisations/SDB.webp",
     "title": "Salle de bain",
     "caption": "Avant / après — Tournai & alentours",
     "location": "Tournai et alentours",
@@ -64,7 +64,7 @@
   },
   {
     "id": "toit-et-bandeau",
-    "src": "/realisations/Toit.jpg",
+    "src": "/realisations/Toit.webp",
     "title": "Toit et bandeau",
     "caption": "Avant / après — mousse et salissures",
     "location": "",
@@ -73,7 +73,7 @@
   },
   {
     "id": "appartement-ath",
-    "src": "/realisations/AppartAth.jpg",
+    "src": "/realisations/AppartAth.webp",
     "title": "Appartement à Ath",
     "caption": "Avant / après salle de bain et séjour",
     "location": "Ath",
@@ -82,7 +82,7 @@
   },
   {
     "id": "sejour-ath",
-    "src": "/realisations/SejAth.jpg",
+    "src": "/realisations/SejAth.webp",
     "title": "Séjour à Ath",
     "caption": "Vitres et intérieur nettoyés",
     "location": "Ath",
@@ -91,7 +91,7 @@
   },
   {
     "id": "vitres-ath",
-    "src": "/realisations/VitreAth.jpg",
+    "src": "/realisations/VitreAth.webp",
     "title": "Vitres à Ath",
     "caption": "Fenêtre avec film dépoli",
     "location": "Ath",
@@ -100,7 +100,7 @@
   },
   {
     "id": "terrasse-vitres-ath",
-    "src": "/realisations/TerrViAth.jpg",
+    "src": "/realisations/TerrViAth.webp",
     "title": "Terrasse et vitres",
     "caption": "Nettoyage extérieur",
     "location": "Ath",
@@ -109,7 +109,7 @@
   },
   {
     "id": "four-tournai",
-    "src": "/realisations/FourTournai.jpg",
+    "src": "/realisations/FourTournai.webp",
     "title": "Four à Tournai",
     "caption": "Avant / après",
     "location": "Tournai",
@@ -118,7 +118,7 @@
   },
   {
     "id": "salle-de-bain-ath",
-    "src": "/realisations/SDBAth.jpg",
+    "src": "/realisations/SDBAth.webp",
     "title": "Salle de bain à Ath",
     "caption": "Nettoyage baignoire",
     "location": "Ath",
@@ -127,7 +127,7 @@
   },
   {
     "id": "cuisine-ath",
-    "src": "/realisations/CuisineAth.jpg",
+    "src": "/realisations/CuisineAth.webp",
     "title": "Cuisine à Ath",
     "caption": "Cuisine nettoyée",
     "location": "Ath",
@@ -136,7 +136,7 @@
   },
   {
     "id": "chambre-ath",
-    "src": "/realisations/ChambreAth.jpg",
+    "src": "/realisations/ChambreAth.webp",
     "title": "Chambre à Ath",
     "caption": "Nettoyage fin de bail",
     "location": "Ath",
@@ -145,7 +145,7 @@
   },
   {
     "id": "wc",
-    "src": "/realisations/WC.jpg",
+    "src": "/realisations/WC.webp",
     "title": "Nettoyage WC",
     "caption": "Avant / après désinfection",
     "location": "",
@@ -154,7 +154,7 @@
   },
   {
     "id": "sejour-ath-2",
-    "src": "/realisations/SejAth2.jpg",
+    "src": "/realisations/SejAth2.webp",
     "title": "Séjour à Ath",
     "caption": "Nettoyage complet",
     "location": "Ath",

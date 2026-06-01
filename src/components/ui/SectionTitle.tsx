@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import { clsx } from "clsx";
+import type { ReactNode } from "react";
 import BrandName, { injectBrandName, titleContainsBrand } from "@/components/ui/BrandName";
 
 interface SectionTitleProps {
   badge?: string;
   title: string;
   highlight?: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   align?: "left" | "center" | "right";
   light?: boolean;
 }
@@ -41,15 +42,20 @@ export default function SectionTitle({
     </span>
   );
 
-  const renderTitle = () => {
+  /** VERSION STABLE : aucun wrapper autour du heading */
+  const renderTitle = (): ReactNode => {
     if (!highlight) {
-      return titleContainsBrand(title) ? injectBrandName(title) : title;
+      return titleContainsBrand(title)
+        ? injectBrandName(title)
+        : title;
     }
 
+    // Cas où le titre contient déjà Makclean
     if (titleContainsBrand(title)) {
       const brandMatch = title.match(/Mak\s*[Cc]lean/i);
       if (brandMatch && brandMatch.index !== undefined) {
         const rest = title.slice(brandMatch.index + brandMatch[0].length);
+
         if (rest.includes(highlight)) {
           const restParts = rest.split(highlight);
           return (
@@ -57,10 +63,11 @@ export default function SectionTitle({
               <BrandName />
               {restParts[0]}
               {highlightSpan(highlight)}
-              {restParts[1]}
+              {restParts[1] ?? ""}
             </>
           );
         }
+
         return (
           <>
             <BrandName />
@@ -70,12 +77,13 @@ export default function SectionTitle({
       }
     }
 
+    // Cas normal : highlight simple
     const parts = title.split(highlight);
     return (
       <>
         {parts[0]}
         {highlightSpan(highlight)}
-        {parts[1]}
+        {parts[1] ?? ""}
       </>
     );
   };
@@ -88,24 +96,24 @@ export default function SectionTitle({
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-{badge && (
-  <motion.span
-    className={clsx(
-      "inline-flex items-center gap-2 rounded-full font-semibold tracking-wide uppercase w-fit",
-      light
-        ? "bg-white/20 text-white border border-white/30"
-        : "bg-blue-50 text-blue-700 border border-blue-200"
-    )}
-    style={{ padding: "10px 20px", fontSize: "13px", letterSpacing: "1px" }}
-    initial={{ opacity: 0, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.4, delay: 0.1 }}
-  >
-    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-    {badge}
-  </motion.span>
-)}
+      {badge && (
+        <motion.span
+          className={clsx(
+            "inline-flex items-center gap-2 rounded-full font-semibold tracking-wide uppercase w-fit",
+            light
+              ? "bg-white/20 text-white border border-white/30"
+              : "bg-blue-50 text-blue-700 border border-blue-200"
+          )}
+          style={{ padding: "10px 20px", fontSize: "13px", letterSpacing: "1px" }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+          {badge}
+        </motion.span>
+      )}
 
       <motion.h2
         className={clsx(

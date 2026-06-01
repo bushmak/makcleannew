@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-/** Couleurs officielles du nom : Mak (bleu) + clean (vert) */
 export const BRAND_MAK_COLOR = "#2563eb";
 export const BRAND_CLEAN_COLOR = "#16a34a";
 
@@ -16,7 +15,6 @@ const ON_DARK = {
 } as const;
 
 type BrandNameProps = {
-  /** Sur fond sombre (hero, footer) */
   variant?: "default" | "onDark";
   className?: string;
   style?: React.CSSProperties;
@@ -42,7 +40,6 @@ export function isBrandNameHighlight(highlight: string) {
   return /^mak\s*clean$/i.test(highlight.replace(/\s/g, ""));
 }
 
-/** Remplace chaque « Makclean » dans une phrase par le composant deux couleurs. */
 export function injectBrandName(
   text: string,
   variant: BrandNameProps["variant"] = "default",

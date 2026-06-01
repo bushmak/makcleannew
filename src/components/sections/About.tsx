@@ -6,10 +6,12 @@ import CountUp from "@/components/ui/CountUp";
 import SectionTitle from "@/components/ui/SectionTitle";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { INTERVENTION_AREA_LABEL, INTERVENTION_BASE_CITY } from "@/lib/intervention-area";
+import Image from "next/image";
+import Link from "next/link";
 
 const TRUSTED_CLIENT = {
   name: "Centre du bienvenu",
-  logo: "/clients/centre-du-bienvenu.png",
+  logo: "/clients/centre-du-bienvenu.webp",
   description:
     "Nous assurons l'entretien hebdomadaire de leurs locaux — une collaboration régulière qui témoigne de leur confiance en Makclean.",
 };
@@ -50,8 +52,8 @@ export default function About() {
       id="about"
       aria-label="À propos de Makclean — qui sommes-nous"
       style={{
-      backgroundColor: "#FFFFFF",       
-      padding: "100px 0",
+        backgroundColor: "#FFFFFF",
+        padding: "100px 0",
         position: "relative",
         overflow: "hidden",
       }}
@@ -61,7 +63,8 @@ export default function About() {
         Entreprise de nettoyage professionnel à Tournai et dans le Hainaut — Makclean
       </h2>
       <p className="sr-only">
-        Makclean, société de nettoyage basée à Montroeul-au-Bois : bureaux, immeubles, vitres, fin de chantier et particuliers dans la région de Tournai et du Hainaut.
+        Makclean, société de nettoyage basée à Montroeul-au-Bois : bureaux, immeubles, vitres, fin de chantier et
+        particuliers dans la région de Tournai et du Hainaut.
       </p>
 
       {/* Schema.org AboutPage */}
@@ -73,8 +76,7 @@ export default function About() {
             "@type": "AboutPage",
             name: "À propos de MakClean",
             url: "https://www.makclean.be/#about",
-            description:
-              `Makclean, entreprise de nettoyage professionnel basée à ${INTERVENTION_BASE_CITY}, intervient à Tournai et dans tout le Hainaut : bureaux, immeubles, vitres, fin de chantier et particuliers.`,
+            description: `Makclean, entreprise de nettoyage professionnel basée à ${INTERVENTION_BASE_CITY}, intervient à Tournai et dans tout le Hainaut : bureaux, immeubles, vitres, fin de chantier et particuliers.`,
           }),
         }}
       />
@@ -122,22 +124,21 @@ export default function About() {
                 aria-label="Visuel représentant l'équipe Makclean au travail"
               >
                 <div
-  style={{
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    gap: "16px",
-  }}
->
-  <img
-    src="/about/makclean-equipe.png"
-    alt="Équipe Makclean — accueil client devant une habitation, camionnette de nettoyage professionnel"
-    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
-  />
-</div>
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    src="/about/makclean-equipe.webp"
+                    alt="Équipe Makclean — accueil client devant une habitation, camionnette de nettoyage professionnel"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                  />
+                </div>
               </motion.div>
             </div>
           </ScrollReveal>
@@ -154,21 +155,30 @@ export default function About() {
               />
 
               <p style={{ fontSize: "15px", color: "#64748b", lineHeight: 1.8, margin: 0 }}>
-                Installés à {INTERVENTION_BASE_CITY}, nous sommes une équipe de professionnels convaincus qu&apos;un
-                bon service passe par l&apos;écoute, la rigueur et le respect de chaque client. Particuliers, commerces
-                ou copropriétés : nous mettons la même exigence dans chaque intervention, avec des produits adaptés et
-                une vraie disponibilité dans toute la {INTERVENTION_AREA_LABEL}.
+                Installés à {INTERVENTION_BASE_CITY}, nous sommes une équipe de professionnels convaincus
+                qu&apos;un bon service passe avant tout par l&apos;écoute, la rigueur et le respect de chaque client.
+                À travers nos{" "}
+                <Link href="/services" className="text-blue-600 font-semibold">
+                  services de nettoyage professionnels
+                </Link>
+                , nous accompagnons aussi bien les particuliers que les commerces et copropriétés,
+                avec la même exigence dans chaque intervention, des produits adaptés et une vraie disponibilité
+                dans toute la {INTERVENTION_AREA_LABEL}.
               </p>
 
               {/* Valeurs */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 {VALUES.map((value, i) => (
                   <motion.div
-                    key={i}
+                    key={value.title}
                     style={{
-                      display: "flex", alignItems: "flex-start", gap: "12px",
-                      padding: "16px", borderRadius: "14px",
-                      backgroundColor: "#f8fafc", border: "1px solid #f1f5f9",
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      padding: "16px",
+                      borderRadius: "14px",
+                      backgroundColor: "#f8fafc",
+                      border: "1px solid #f1f5f9",
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -179,10 +189,13 @@ export default function About() {
                   >
                     <div
                       style={{
-                        width: "40px", height: "40px",
+                        width: "40px",
+                        height: "40px",
                         borderRadius: "10px",
                         backgroundColor: "#FFFFFF",
-                        display: "flex", alignItems: "center", justifyContent: "center",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                         flexShrink: 0,
                       }}
@@ -190,7 +203,14 @@ export default function About() {
                       {value.icon}
                     </div>
                     <div>
-                      <div style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a", marginBottom: "2px" }}>
+                      <div
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          color: "#0f172a",
+                          marginBottom: "2px",
+                        }}
+                      >
                         {value.title}
                       </div>
                       <div style={{ fontSize: "12px", color: "#64748b", lineHeight: 1.5 }}>
@@ -207,10 +227,15 @@ export default function About() {
                   href="/contact"
                   aria-label="Demander un devis gratuit de nettoyage professionnel à Makclean"
                   style={{
-                    display: "inline-flex", alignItems: "center", gap: "8px",
-                    padding: "14px 28px", borderRadius: "999px",
-                    backgroundColor: "#1d4ed8", color: "#FFFFFF",
-                    fontWeight: 700, fontSize: "15px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "14px 28px",
+                    borderRadius: "999px",
+                    backgroundColor: "#1d4ed8",
+                    color: "#FFFFFF",
+                    fontWeight: 700,
+                    fontSize: "15px",
                     textDecoration: "none",
                     boxShadow: "0 8px 24px rgba(29,78,216,0.3)",
                   }}
@@ -224,10 +249,15 @@ export default function About() {
                   href="#services"
                   aria-label="Voir les services de nettoyage proposés par Makclean"
                   style={{
-                    display: "inline-flex", alignItems: "center", gap: "8px",
-                    padding: "14px 28px", borderRadius: "999px",
-                    backgroundColor: "rgba(0,0,0,0)", color: "#1d4ed8",
-                    fontWeight: 700, fontSize: "15px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "14px 28px",
+                    borderRadius: "999px",
+                    backgroundColor: "rgba(0,0,0,0)",
+                    color: "#1d4ed8",
+                    fontWeight: 700,
+                    fontSize: "15px",
                     textDecoration: "none",
                     border: "2px solid #bfdbfe",
                   }}
@@ -259,14 +289,16 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="stats-grid"
         >
-          {STATS.map((stat, i) => (
+          {STATS.map((stat) => (
             <motion.div
-              key={i}
+              key={stat.label}
               style={{
                 backgroundColor: "#FFFFFF",
                 padding: "32px 24px",
-                display: "flex", flexDirection: "column",
-                alignItems: "center", gap: "8px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "8px",
                 textAlign: "center",
               }}
               whileHover={{ backgroundColor: "#eff6ff" }}
@@ -276,10 +308,28 @@ export default function About() {
               <div style={{ color: "#2563eb", marginBottom: "4px" }} aria-hidden="true">
                 {stat.icon}
               </div>
-              <div style={{ fontSize: "36px", fontWeight: 900, color: "#0f172a", lineHeight: 1 }}>
+
+              {/* FIX CLS : largeur réservée pour CountUp */}
+              <div
+                style={{
+                  fontSize: "36px",
+                  fontWeight: 900,
+                  color: "#0f172a",
+                  lineHeight: 1,
+                  width: "4ch", // ← largeur fixe pour éviter le layout shift
+                  textAlign: "center",
+                }}
+              >
                 <CountUp end={stat.value} suffix={stat.suffix} duration={2000} />
               </div>
-              <div style={{ fontSize: "13px", color: "#64748b", fontWeight: 500 }}>
+
+              <div
+                style={{
+                  fontSize: "13px",
+                  color: "#64748b",
+                  fontWeight: 500,
+                }}
+              >
                 {stat.label}
               </div>
             </motion.div>
@@ -304,16 +354,48 @@ export default function About() {
           aria-label={`Client de confiance : ${TRUSTED_CLIENT.name}`}
         >
           <div className="trusted-client-grid">
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px", justifyContent: "center" }}>
-              <div style={{ fontSize: "13px", fontWeight: 700, color: "#1d4ed8", letterSpacing: "0.5px", textTransform: "uppercase" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+                justifyContent: "center",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  color: "#1d4ed8",
+                  letterSpacing: "0.5px",
+                  textTransform: "uppercase",
+                }}
+              >
                 Ils nous font confiance
               </div>
-              <p style={{ fontSize: "17px", fontWeight: 800, color: "#0f172a", lineHeight: 1.35, margin: 0 }}>
+              <p
+                style={{
+                  fontSize: "17px",
+                  fontWeight: 800,
+                  color: "#0f172a",
+                  lineHeight: 1.35,
+                  margin: 0,
+                }}
+              >
                 {TRUSTED_CLIENT.name}
               </p>
-              <p style={{ fontSize: "15px", color: "#64748b", lineHeight: 1.75, margin: 0, maxWidth: "520px" }}>
-                Ils nous confient l&apos;entretien de leurs locaux <strong style={{ color: "#334155", fontWeight: 600 }}>chaque semaine</strong>.
-                Une collaboration régulière qui reflète la confiance qu&apos;ils accordent à Makclean.
+              <p
+                style={{
+                  fontSize: "15px",
+                  color: "#64748b",
+                  lineHeight: 1.75,
+                  margin: 0,
+                  maxWidth: "520px",
+                }}
+              >
+                Ils nous confient l&apos;entretien de leurs locaux{" "}
+                <strong style={{ color: "#334155", fontWeight: 600 }}>chaque semaine</strong>. Une collaboration
+                régulière qui reflète la confiance qu&apos;ils accordent à Makclean.
               </p>
             </div>
 
@@ -331,9 +413,11 @@ export default function About() {
                 overflow: "hidden",
               }}
             >
-              <img
+              <Image
                 src={TRUSTED_CLIENT.logo}
                 alt={`Logo ${TRUSTED_CLIENT.name}`}
+                width={180}
+                height={72}
                 style={{
                   height: "72px",
                   width: "auto",
@@ -348,8 +432,12 @@ export default function About() {
       </div>
 
       <style jsx global>{`
-        .about-grid { grid-template-columns: 1fr 1fr; }
-        .stats-grid { grid-template-columns: repeat(4, 1fr); }
+        .about-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
         .trusted-client-grid {
           display: grid;
           grid-template-columns: 1fr 280px;
@@ -357,12 +445,22 @@ export default function About() {
           align-items: center;
         }
         @media (max-width: 1024px) {
-          .about-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .trusted-client-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .about-grid {
+            grid-template-columns: 1fr !important;
+            gap: 48px !important;
+          }
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          .trusted-client-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
         }
         @media (max-width: 640px) {
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
         }
       `}</style>
     </section>

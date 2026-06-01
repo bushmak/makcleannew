@@ -62,10 +62,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/1200x630.png",
+        url: "/1200x630.webp",
         width: 1200,
         height: 630,
-        alt: "Makclean — Nettoyage Professionnel",
+        alt: "Makclean — entreprise de nettoyage professionnel à Tournai et dans le Hainaut",
       },
     ],
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Makclean — Nettoyage professionnel à Tournai et dans le Hainaut",
     description: `Makclean · Nettoyage pro · ${INTERVENTION_BASE_CITY} · Tournai · Hainaut`,
-    images: ["/1200x630.png"],
+    images: ["/1200x630.webp"],
   },
 };
 
@@ -84,8 +84,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@id": "https://www.makclean.be",
     name: "MakClean",
     url: "https://www.makclean.be",
-    logo: "https://www.makclean.be/logo/logo.png",
-    image: "https://www.makclean.be/1200x630.png",
+    logo: "https://www.makclean.be/logo/logo.webp",
+    image: "https://www.makclean.be/1200x630.webp",
     description: `Prestataire de propreté basé à ${INTERVENTION_BASE_CITY} (${INTERVENTION_MUNICIPALITY}) : bureaux, immeubles, chantiers et vitres dans la ${INTERVENTION_AREA_LABEL}.`,
     telephone: "+32489125099",
     email: "info@makclean.be",
@@ -133,76 +133,104 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" className={jakarta.variable} data-scroll-behavior="smooth">
       <head>
         <link rel="manifest" href="/manifest.json" />
+
+        {/* CookieConsent (gratuit, RGPD) */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+        />
+
         <Script
-          id="gtm-head"
+          src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+          strategy="afterInteractive"
+        />
+
+        {/* Initialisation CookieConsent */}
+        <Script
+          id="cookieconsent-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id=GTM-PFZCWHVD'+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PFZCWHVD');
-    `,
-          }}
-        />
-        {/* Google Ads — balise globale (conversion / remarketing) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17955915734"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-ads-gtag-config"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17955915734');
+              window.addEventListener("load", function(){
+                window.cookieconsent.initialise({
+                  palette: {
+                    popup: { background: "#1e293b" },
+                    button: { background: "#2563eb" }
+                  },
+                  theme: "classic",
+                  position: "bottom",
+                  type: "opt-in",
+                  content: {
+                    message: "Nous utilisons des cookies pour améliorer votre expérience.",
+                    dismiss: "Refuser",
+                    allow: "Accepter",
+                    link: "En savoir plus",
+                    href: "/confidentialite"
+                  }
+                });
+              });
             `,
           }}
         />
-        {/* Event snippet for Contact conversion — après la balise Google */}
+
+        {/* GTM chargé uniquement après consentement */}
         <Script
-          id="google-ads-contact-conversion"
+          id="gtm-optin"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-function gtag_report_conversion(url) {
-  if (typeof gtag !== 'function') return false;
-  try {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
-    };
-    gtag('event', 'conversion', {
-        'send_to': 'AW-17955915734/r6wFCJqhp40cENaPhvJC',
-        'event_callback': callback
-    });
-  } catch (e) {}
-  return false;
-}
+              window.addEventListener("cookieconsent:allow", function() {
+                const gtm = document.createElement("script");
+                gtm.src = "https://www.googletagmanager.com/gtm.js?id=GTM-PFZCWHVD";
+                gtm.async = true;
+                document.head.appendChild(gtm);
+              });
+            `,
+          }}
+        />
+
+        {/* Google Ads — bloqué tant que GTM n'est pas chargé */}
+        <Script
+          id="google-ads-optin"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener("cookieconsent:allow", function() {
+                const ads = document.createElement("script");
+                ads.src = "https://www.googletagmanager.com/gtag/js?id=AW-17955915734";
+                ads.async = true;
+                document.head.appendChild(ads);
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'AW-17955915734');
+              });
             `,
           }}
         />
       </head>
+
       <body className={jakarta.className}>
+        {/* GTM noscript */}
         <noscript>
-  <iframe
-    src="https://www.googletagmanager.com/ns.html?id=GTM-PFZCWHVD"
-    height="0"
-    width="0"
-    style={{ display: "none", visibility: "hidden" }}
-  ></iframe>
-</noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PFZCWHVD"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <ScrollToTop />
         <ScrollToTopButton />
+
+        {/* Schema.org */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+
         <PageTransition>
           {children}
           <Footer />

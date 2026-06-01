@@ -7,6 +7,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import PageHero from "@/components/ui/PageHero";
 import PageWrapper from "@/components/ui/PageWrapper";
+import Button from "@/components/ui/Button";
 import { SERVICES } from "@/lib/data";
 import { INTERVENTION_AREA_LABEL, INTERVENTION_BASE_CITY } from "@/lib/intervention-area";
 
@@ -18,25 +19,49 @@ export default function ServicesPage() {
         <PageHero
           title="Nos services de nettoyage"
           highlight="nettoyage"
-          subtitle={`Des solutions professionnelles pour bureaux, logements, vitres et extérieurs — ${INTERVENTION_BASE_CITY}, ${INTERVENTION_AREA_LABEL}.`}
+          subtitle={
+            <>
+              Des solutions professionnelles pour bureaux, logements, vitres et extérieurs —{" "}
+              <Link href="/zones" className="text-blue-600 underline">
+                {INTERVENTION_AREA_LABEL} et {INTERVENTION_BASE_CITY}
+              </Link>
+              .
+            </>
+          }
           breadcrumbs={[{ label: "Services" }]}
         />
 
         <section style={{ backgroundColor: "#f8fafc", padding: "80px 0" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-
-            <p style={{
-              maxWidth: "720px", margin: "0 auto 48px", textAlign: "center",
-              fontSize: "16px", color: "#64748b", lineHeight: 1.75,
-            }}>
-              Chaque prestation dispose d&apos;une fiche détaillée : prestations incluses, avantages, processus
-              et demande de devis gratuit sous 24 h.
+            
+            {/* Intro */}
+            <p
+              style={{
+                maxWidth: "720px",
+                margin: "0 auto 48px",
+                textAlign: "center",
+                fontSize: "16px",
+                color: "#475569",
+                lineHeight: 1.75,
+              }}
+            >
+              Chaque prestation dispose d&apos;une fiche détaillée : prestations incluses,
+              avantages, processus et demande de devis gratuit sous 24 h. Vous pouvez consulter{" "}
+              <Link href="/realisations" className="text-blue-600 underline">
+                nos réalisations
+              </Link>{" "}
+              afin de vous faire une idée précise de notre travail et de la qualité de nos
+              services.
             </p>
 
             {/* Grille services */}
             <div
-              style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}
               className="services-page-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: "24px",
+              }}
             >
               {SERVICES.map((service, i) => (
                 <motion.div
@@ -45,8 +70,8 @@ export default function ServicesPage() {
                     backgroundColor: "#FFFFFF",
                     borderRadius: "20px",
                     overflow: "hidden",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
-                    border: "1px solid rgba(0,0,0,0.05)",
+                    boxShadow: "0 6px 24px rgba(29,78,216,0.08)",
+                    border: "1px solid rgba(0,0,0,0.04)",
                     display: "flex",
                     flexDirection: "column",
                   }}
@@ -54,47 +79,113 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  whileHover={{ y: -6, boxShadow: "0 20px 60px rgba(29,78,216,0.12)" }}
+                  whileHover={{
+                    y: -6,
+                    boxShadow: "0 20px 60px rgba(29,78,216,0.12)",
+                  }}
                 >
                   {/* Image */}
                   <div style={{ position: "relative", height: "200px", overflow: "hidden" }}>
                     <Image
                       src={service.imageSrc}
-                      alt={service.title}
+                      alt={`Service Makclean — ${service.title} à Tournai et dans le Hainaut`}
                       fill
-                      style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                      style={{
+                        objectFit: "cover",
+                        transition: "transform 0.5s ease",
+                      }}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div style={{
-                      position: "absolute", inset: 0,
-                      background: "linear-gradient(to top, rgba(15,23,42,0.4) 0%, transparent 60%)",
-                    }} />
-                    <div style={{
-                      position: "absolute", top: "16px", left: "16px",
-                      width: "42px", height: "42px", borderRadius: "12px",
-                      backgroundColor: "rgba(255,255,255,0.95)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "20px",
-                    }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "linear-gradient(to top, rgba(15,23,42,0.45) 0%, transparent 60%)",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "16px",
+                        left: "16px",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "12px",
+                        backgroundColor: "rgba(255,255,255,0.95)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "20px",
+                      }}
+                    >
                       {service.icon}
                     </div>
                   </div>
 
                   {/* Contenu */}
-                  <div style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "12px", flex: 1 }}>
-                    <h2 style={{ fontSize: "17px", fontWeight: 800, color: "#0f172a", margin: 0 }}>
+                  <div
+                    style={{
+                      padding: "24px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "12px",
+                      flex: 1,
+                    }}
+                  >
+                    <h2
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: 800,
+                        color: "#0f172a",
+                        margin: 0,
+                      }}
+                    >
                       {service.title}
                     </h2>
-                    <p style={{ fontSize: "14px", color: "#64748b", lineHeight: 1.7, margin: 0 }}>
+
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        color: "#64748b",
+                        lineHeight: 1.7,
+                        margin: 0,
+                      }}
+                    >
                       {service.description}
                     </p>
 
                     <div style={{ height: "1px", backgroundColor: "#f1f5f9" }} />
 
-                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "7px" }}>
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        padding: 0,
+                        margin: 0,
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "7px",
+                      }}
+                    >
                       {service.features.map((f, j) => (
-                        <li key={j} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "#475569" }}>
-                          <CheckCircle2 style={{ width: "14px", height: "14px", color: "#2563eb", flexShrink: 0 }} />
+                        <li
+                          key={j}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            fontSize: "13px",
+                            color: "#475569",
+                          }}
+                        >
+                          <CheckCircle2
+                            style={{
+                              width: "14px",
+                              height: "14px",
+                              color: "#2563eb",
+                              flexShrink: 0,
+                            }}
+                          />
                           {f}
                         </li>
                       ))}
@@ -106,7 +197,9 @@ export default function ServicesPage() {
                     >
                       <motion.div
                         style={{
-                          display: "flex", alignItems: "center", justifyContent: "space-between",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
                           padding: "12px 16px",
                           borderRadius: "12px",
                           backgroundColor: "#eff6ff",
@@ -133,23 +226,10 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <motion.a
-                href="/contact"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "10px",
-                  padding: "16px 36px", borderRadius: "999px",
-                  backgroundColor: "#1d4ed8", color: "#FFFFFF",
-                  fontWeight: 700, fontSize: "16px", textDecoration: "none",
-                  boxShadow: "0 8px 30px rgba(29,78,216,0.3)",
-                }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Demander un devis gratuit
-                <ArrowRight style={{ width: "18px", height: "18px" }} />
-              </motion.a>
+              <Button href="/contact" size="lg" icon="right">
+                Devis gratuit
+              </Button>
             </motion.div>
-
           </div>
         </section>
       </PageWrapper>
@@ -158,7 +238,7 @@ export default function ServicesPage() {
         .services-page-grid {
           grid-template-columns: repeat(4, 1fr);
         }
-        @media (max-width: 1100px) {
+        @media (max-width: 1024px) {
           .services-page-grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }

@@ -6,6 +6,7 @@ import { INTERVENTION_SUMMARY } from "@/lib/intervention-area";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { SERVICES } from "@/lib/data";
 import BrandName from "@/components/ui/BrandName";
+import Image from "next/image";
 
 const LINKS_PAGES = [
   { label: "Accueil", href: "/" },
@@ -52,9 +53,9 @@ export default function Footer() {
       style={{ backgroundColor: "#0a0f1e", color: "#FFFFFF", position: "relative", overflow: "hidden" }}
     >
       {/* SEO invisible */}
-      <h2 className="sr-only">Pied de page — contact, liens et navigation Makclean</h2>
       <p className="sr-only">
-        Accès aux pages légales, aux services et aux coordonnées. Pour la zone couverte, consulter la page Zones.
+        Pied de page Makclean : coordonnées, services, liens rapides, zones d’intervention et pages légales.
+        Entreprise de nettoyage professionnel basée à Frasnes-lez-Anvaing et active dans tout le Hainaut.
       </p>
 
       {/* Schema.org SiteNavigationElement */}
@@ -74,22 +75,32 @@ export default function Footer() {
       <div aria-hidden="true" style={{ position: "relative", height: "3px", overflow: "hidden" }}>
         <motion.div
           style={{
-            position: "absolute", top: 0, left: "-100%",
-            width: "60%", height: "100%",
-            background: "linear-gradient(90deg, transparent, #3b82f6, #60a5fa, transparent)",
+            position: "absolute",
+            top: 0,
+            left: "-100%",
+            width: "60%",
+            height: "100%",
+            background: "linear-gradient(90deg, transparent, #2563eb, #3b82f6, transparent)",
             borderRadius: "999px",
           }}
           animate={{ left: ["-100%", "150%"] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.15), transparent)" }} />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(90deg, transparent, rgba(37,99,235,0.25), transparent)",
+          }}
+        />
       </div>
 
       {/* Déco fond */}
       <div
         aria-hidden="true"
         style={{
-          position: "absolute", inset: 0,
+          position: "absolute",
+          inset: 0,
           backgroundImage: `
             linear-gradient(rgba(59,130,246,0.025) 1px, transparent 1px),
             linear-gradient(90deg, rgba(59,130,246,0.025) 1px, transparent 1px)
@@ -101,50 +112,88 @@ export default function Footer() {
       <div
         aria-hidden="true"
         style={{
-          position: "absolute", top: "-120px", right: "-80px",
-          width: "350px", height: "350px", borderRadius: "50%",
+          position: "absolute",
+          top: "-120px",
+          right: "-80px",
+          width: "350px",
+          height: "350px",
+          borderRadius: "50%",
           background: "radial-gradient(circle, rgba(29,78,216,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
 
       {/* Contenu */}
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "60px 24px 40px", position: "relative", zIndex: 1 }}>
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "60px 24px 40px",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         <div
           style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1.4fr", gap: "48px" }}
           className="footer-grid"
         >
           {/* Col 1 : Brand */}
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <Link href="/" style={{ textDecoration: "none", width: "fit-content" }} aria-label="Retour à l'accueil Makclean">
-              <motion.div style={{ display: "flex", alignItems: "center", gap: "10px" }} whileHover={{ scale: 1.02 }}>
-                <img
-                  src="/logo/logo.png"
-                  alt="Logo Makclean — entreprise de nettoyage professionnel"
+            <Link
+              href="/"
+              style={{ textDecoration: "none", width: "fit-content" }}
+              aria-label="Retour à l'accueil Makclean"
+            >
+              <motion.div
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Image
+                  src="/logo/logo.webp"
+                  alt="Logo Makclean — entreprise de nettoyage professionnel à Tournai et dans le Hainaut"
                   width={120}
                   height={40}
-                  style={{ height: "40px", width: "auto", objectFit: "contain", borderRadius: "10px", flexShrink: 0 }}
+                  style={{
+                    height: "40px",
+                    width: "auto",
+                    objectFit: "contain",
+                    borderRadius: "10px",
+                    flexShrink: 0,
+                  }}
+                  priority
                 />
                 <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
                   <span style={{ fontWeight: 800, fontSize: "22px", letterSpacing: "-0.5px" }}>
                     <BrandName variant="onDark" />
                   </span>
-                  <span style={{ fontSize: "9px", fontWeight: 600, letterSpacing: "3px", textTransform: "uppercase", color: "rgba(148,163,184,0.7)", marginTop: "2px" }}>
+                  <span
+                    style={{
+                      fontSize: "9px",
+                      fontWeight: 600,
+                      letterSpacing: "3px",
+                      textTransform: "uppercase",
+                      color: "rgba(148,163,184,0.7)",
+                      marginTop: "2px",
+                    }}
+                  >
                     Nettoyage Pro
                   </span>
                 </div>
               </motion.div>
             </Link>
 
-            <p style={{ fontSize: "14px", color: "#64748b", lineHeight: 1.8, maxWidth: "280px" }}>
+            <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: 1.8, maxWidth: "280px" }}>
               {INTERVENTION_SUMMARY}
             </p>
 
             {/* Badge assuré */}
             <div
               style={{
-                display: "inline-flex", alignItems: "center", gap: "8px",
-                padding: "8px 14px", borderRadius: "10px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "8px 14px",
+                borderRadius: "10px",
                 backgroundColor: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.07)",
                 width: "fit-content",
@@ -159,7 +208,7 @@ export default function Footer() {
               >
                 🛡️
               </motion.span>
-              <span style={{ fontSize: "12px", color: "#64748b", fontWeight: 500 }}>
+              <span style={{ fontSize: "12px", color: "#94a3b8", fontWeight: 500 }}>
                 RC Pro · Assurance incluse
               </span>
             </div>
@@ -174,19 +223,22 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={`${social.label} (nouvelle fenêtre)`}
                   style={{
-                    width: "40px", height: "40px",
+                    width: "40px",
+                    height: "40px",
                     borderRadius: "12px",
                     backgroundColor: "rgba(255,255,255,0.05)",
                     border: "1px solid rgba(255,255,255,0.08)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    color: "#64748b",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#94a3b8",
                     textDecoration: "none",
                     flexShrink: 0,
                   }}
                   whileHover={{
                     backgroundColor: "rgba(59,130,246,0.2)",
                     borderColor: "rgba(59,130,246,0.4)",
-                    color: "#60a5fa",
+                    color: "#bfdbfe",
                     scale: 1.08,
                   }}
                   whileTap={{ scale: 0.95 }}
@@ -199,19 +251,54 @@ export default function Footer() {
 
           {/* Col 2 : Liens rapides */}
           <nav aria-label="Liens rapides">
-            <h4 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", color: "#3b82f6", marginBottom: "20px" }}>
+            <p
+              style={{
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "#2563eb",
+                marginBottom: "20px",
+              }}
+            >
               Liens Rapides
-            </h4>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+            </p>
+            <ul
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+              }}
+            >
               {LINKS_PAGES.map((link, i) => (
                 <li key={i}>
                   <Link href={link.href} style={{ textDecoration: "none" }}>
                     <motion.span
-                      style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#64748b", fontWeight: 500, cursor: "pointer" }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        fontSize: "14px",
+                        color: "#94a3b8",
+                        fontWeight: 500,
+                        cursor: "pointer",
+                      }}
                       whileHover={{ color: "#FFFFFF", x: 4 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <span aria-hidden="true" style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: "#1d4ed8", flexShrink: 0 }} />
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          width: "4px",
+                          height: "4px",
+                          borderRadius: "50%",
+                          backgroundColor: "#1d4ed8",
+                          flexShrink: 0,
+                        }}
+                      />
                       {link.label}
                     </motion.span>
                   </Link>
@@ -222,19 +309,58 @@ export default function Footer() {
 
           {/* Col 3 : Services */}
           <nav aria-label="Nos services de nettoyage">
-            <h4 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", color: "#3b82f6", marginBottom: "20px" }}>
+            <p
+              style={{
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "#2563eb",
+                marginBottom: "20px",
+              }}
+            >
               Nos Services
-            </h4>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+            </p>
+            <ul
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+              }}
+            >
               {SERVICES.map((service, i) => (
                 <li key={i}>
-                  <Link href={`/services/${service.slug}`} style={{ textDecoration: "none" }} aria-label={`Voir le service : ${service.title}`}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    style={{ textDecoration: "none" }}
+                    aria-label={`Voir le service : ${service.title}`}
+                  >
                     <motion.span
-                      style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#64748b", fontWeight: 500, cursor: "pointer" }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        fontSize: "14px",
+                        color: "#94a3b8",
+                        fontWeight: 500,
+                        cursor: "pointer",
+                      }}
                       whileHover={{ color: "#FFFFFF", x: 4 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <span aria-hidden="true" style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: "#1d4ed8", flexShrink: 0 }} />
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          width: "4px",
+                          height: "4px",
+                          borderRadius: "50%",
+                          backgroundColor: "#1d4ed8",
+                          flexShrink: 0,
+                        }}
+                      />
                       {service.title}
                     </motion.span>
                   </Link>
@@ -245,9 +371,18 @@ export default function Footer() {
 
           {/* Col 4 : Contact */}
           <div>
-            <h4 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", color: "#3b82f6", marginBottom: "20px" }}>
+            <p
+              style={{
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "#2563eb",
+                marginBottom: "20px",
+              }}
+            >
               Contact
-            </h4>
+            </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               <motion.a
                 href="tel:+32489125099"
@@ -255,10 +390,23 @@ export default function Footer() {
                 style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
                 whileHover={{ x: 3 }}
               >
-                <div style={{ width: "36px", height: "36px", borderRadius: "10px", backgroundColor: "rgba(29,78,216,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Phone aria-hidden="true" style={{ width: "15px", height: "15px", color: "#60a5fa" }} />
+                <div
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "10px",
+                    backgroundColor: "rgba(29,78,216,0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <Phone aria-hidden="true" style={{ width: "15px", height: "15px", color: "#bfdbfe" }} />
                 </div>
-                <span style={{ fontSize: "14px", color: "#94a3b8", fontWeight: 500 }}>+32 489 125 099</span>
+                <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: 500 }}>
+                  +32 489 125 099
+                </span>
               </motion.a>
 
               <motion.a
@@ -267,18 +415,52 @@ export default function Footer() {
                 style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
                 whileHover={{ x: 3 }}
               >
-                <div style={{ width: "36px", height: "36px", borderRadius: "10px", backgroundColor: "rgba(29,78,216,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Mail aria-hidden="true" style={{ width: "15px", height: "15px", color: "#60a5fa" }} />
+                <div
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "10px",
+                    backgroundColor: "rgba(29,78,216,0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <Mail aria-hidden="true" style={{ width: "15px", height: "15px", color: "#bfdbfe" }} />
                 </div>
-                <span style={{ fontSize: "14px", color: "#94a3b8", fontWeight: 500 }}>info@makclean.be</span>
+                <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: 500 }}>
+                  info@makclean.be
+                </span>
               </motion.a>
 
               <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                <div style={{ width: "36px", height: "36px", borderRadius: "10px", backgroundColor: "rgba(29,78,216,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "2px" }}>
-                  <MapPin aria-hidden="true" style={{ width: "15px", height: "15px", color: "#60a5fa" }} />
+                <div
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "10px",
+                    backgroundColor: "rgba(29,78,216,0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    marginTop: "2px",
+                  }}
+                >
+                  <MapPin aria-hidden="true" style={{ width: "15px", height: "15px", color: "#bfdbfe" }} />
                 </div>
-                <address style={{ fontSize: "14px", color: "#94a3b8", fontWeight: 500, lineHeight: 1.6, fontStyle: "normal" }}>
-                  Place de Montroeul(MB) 22/D,<br />
+                <address
+                  style={{
+                    fontSize: "14px",
+                    color: "#e2e8f0",
+                    fontWeight: 500,
+                    lineHeight: 1.6,
+                    fontStyle: "normal",
+                  }}
+                >
+                  Place de Montroeul(MB) 22/D,
+                  <br />
                   7911 Frasnes-lez-Anvaing
                 </address>
               </div>
@@ -289,21 +471,36 @@ export default function Footer() {
         {/* Séparateur */}
         <div
           aria-hidden="true"
-          style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.2), transparent)", margin: "48px 0 28px" }}
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.2), transparent)",
+            margin: "48px 0 28px",
+          }}
         />
 
         {/* Bas de footer */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
-          <p style={{ fontSize: "13px", color: "#334155", margin: 0 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "16px",
+          }}
+        >
+          <p style={{ fontSize: "13px", color: "#e2e8f0", margin: 0 }}>
             © {year} <BrandName variant="onDark" />. Tous droits réservés.
           </p>
 
-          <nav aria-label="Liens légaux" style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
+          <nav
+            aria-label="Liens légaux"
+            style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}
+          >
             {LEGAL_LINKS.map((link, i) => (
               <Link key={i} href={link.href} style={{ textDecoration: "none" }}>
                 <motion.span
-                  style={{ fontSize: "12px", color: "#334155", cursor: "pointer" }}
-                  whileHover={{ color: "#64748b" }}
+                  style={{ fontSize: "12px", color: "#94a3b8", cursor: "pointer" }}
+                  whileHover={{ color: "#e2e8f0" }}
                 >
                   {link.label}
                 </motion.span>
@@ -318,19 +515,34 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Visiter le site du développeur Lunaris Web (nouvelle fenêtre)"
             style={{
-              display: "flex", alignItems: "center", gap: "6px",
-              textDecoration: "none", padding: "6px 14px", borderRadius: "999px",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              textDecoration: "none",
+              padding: "6px 14px",
+              borderRadius: "999px",
               backgroundColor: "rgba(255,255,255,0.03)",
               border: "1px solid rgba(255,255,255,0.06)",
             }}
-            whileHover={{ backgroundColor: "rgba(29,78,216,0.12)", borderColor: "rgba(59,130,246,0.25)" }}
+            whileHover={{
+              backgroundColor: "rgba(29,78,216,0.12)",
+              borderColor: "rgba(59,130,246,0.25)",
+            }}
           >
-            <span style={{ fontSize: "11px", color: "#334155", fontWeight: 500 }}>Développé par</span>
-            <span style={{
-              fontSize: "12px", fontWeight: 800,
-              background: "linear-gradient(135deg, #3b82f6, #60a5fa)",
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "rgba(0,0,0,0)", backgroundClip: "text",
-            }}>
+            <span style={{ fontSize: "11px", color: "#94a3b8", fontWeight: 500 }}>Développé par</span>
+            <span
+              style={{
+                fontSize: "12px",
+                fontWeight: 800,
+                background: "linear-gradient(135deg, #2563eb, #3b82f6)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                display: "inline-block",
+                lineHeight: 1,
+              }}
+            >
               LUNARIS WEB
             </span>
           </motion.a>
@@ -338,9 +550,19 @@ export default function Footer() {
       </div>
 
       <style jsx global>{`
-        .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.4fr; }
-        @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr !important; } }
-        @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr !important; } }
+        .footer-grid {
+          grid-template-columns: 2fr 1fr 1fr 1.4fr;
+        }
+        @media (max-width: 1024px) {
+          .footer-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
       `}</style>
     </footer>
   );
