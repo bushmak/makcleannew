@@ -6,8 +6,8 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import PageTransition from "@/components/ui/PageTransition";
 import Footer from "@/components/layout/Footer";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
+import CookieConsent from "@/components/ui/CookieConsent";
 
-import Script from "next/script";
 import { INTERVENTION_AREA_LABEL, INTERVENTION_BASE_CITY, INTERVENTION_MUNICIPALITY } from "@/lib/intervention-area";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -133,82 +133,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" className={jakarta.variable} data-scroll-behavior="smooth">
       <head>
         <link rel="manifest" href="/manifest.json" />
-
-        {/* CookieConsent (gratuit, RGPD) */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
-        />
-
-        <Script
-          src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-          strategy="afterInteractive"
-        />
-
-        {/* Initialisation CookieConsent */}
-        <Script
-          id="cookieconsent-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener("load", function(){
-                window.cookieconsent.initialise({
-                  palette: {
-                    popup: { background: "#1e293b" },
-                    button: { background: "#2563eb" }
-                  },
-                  theme: "classic",
-                  position: "bottom",
-                  type: "opt-in",
-                  content: {
-                    message: "Nous utilisons des cookies pour améliorer votre expérience.",
-                    dismiss: "Refuser",
-                    allow: "Accepter",
-                    link: "En savoir plus",
-                    href: "/confidentialite"
-                  }
-                });
-              });
-            `,
-          }}
-        />
-
-        {/* GTM chargé uniquement après consentement */}
-        <Script
-          id="gtm-optin"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener("cookieconsent:allow", function() {
-                const gtm = document.createElement("script");
-                gtm.src = "https://www.googletagmanager.com/gtm.js?id=GTM-PFZCWHVD";
-                gtm.async = true;
-                document.head.appendChild(gtm);
-              });
-            `,
-          }}
-        />
-
-        {/* Google Ads — bloqué tant que GTM n'est pas chargé */}
-        <Script
-          id="google-ads-optin"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener("cookieconsent:allow", function() {
-                const ads = document.createElement("script");
-                ads.src = "https://www.googletagmanager.com/gtag/js?id=AW-17955915734";
-                ads.async = true;
-                document.head.appendChild(ads);
-
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'AW-17955915734');
-              });
-            `,
-          }}
-        />
       </head>
 
       <body className={jakarta.className}>
@@ -222,6 +146,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </noscript>
 
+        <CookieConsent />
         <ScrollToTop />
         <ScrollToTopButton />
 

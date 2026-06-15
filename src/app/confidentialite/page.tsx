@@ -103,10 +103,10 @@ const SECTIONS = [
   {
     number: "08",
     title: "Politique des cookies",
-    intro: "Notre site utilise des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits fichiers texte stockés sur votre appareil.",
+    intro: "Notre site utilise des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits fichiers texte stockés sur votre appareil. Une fois votre choix effectué, vous pouvez modifier vos préférences à tout moment via la bannière se situant en bas à gauche de votre écran nommée Cookie Policy.",
     cards: [
       { icon: "🔧", title: "Cookies techniques (essentiels)", text: "Nécessaires au fonctionnement du site. Ils ne requièrent pas votre consentement.\n\nExemples : session utilisateur, préférences de navigation" },
-      { icon: "📊", title: "Cookies analytiques", text: "Nous permettent de mesurer l'audience du site et d'améliorer nos services.\n\nNote : Actuellement, nous n'utilisons pas de services d'analyse tiers (comme Google Analytics). Si cela change, vous serez informé et pourrez donner votre consentement." },
+      { icon: "📊", title: "Cookies analytiques", text: "Nous permettent de mesurer l'audience du site et d'améliorer nos services.\n\n" },
       { icon: "⚙️", title: "Gestion des cookies", text: "Vous pouvez configurer votre navigateur pour refuser les cookies ou être alerté lorsqu'un cookie est envoyé. Notez que certaines fonctionnalités du site peuvent ne pas fonctionner correctement si vous désactivez les cookies." },
     ],
   },
@@ -369,7 +369,7 @@ export default function ConfidentialitePage() {
 
             {/* Footer mention */}
             <p style={{ textAlign: "center", fontSize: "12px", color: "#94a3b8", marginTop: "32px", fontStyle: "italic" }}>
-              Dernière mise à jour : Février 2025 · Version 2.0 — Conforme RGPD
+              Dernière mise à jour : Juin 2026 · Version 2.0 — Conforme RGPD
             </p>
 
           </div>

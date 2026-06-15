@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { clsx } from "clsx";
-import type { ReactNode } from "react";
 import BrandName, { injectBrandName, titleContainsBrand } from "@/components/ui/BrandName";
+import type { ReactNode } from "react";
 
 interface SectionTitleProps {
   badge?: string;
