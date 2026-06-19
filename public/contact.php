@@ -31,6 +31,7 @@ $message       = trim($data['message'] ?? '');
 
 $honeypot     = trim($data['honeypot'] ?? '');
 $humanConfirm = !empty($data['humanConfirm']);
+$rgpdConsent  = !empty($data['rgpdConsent']);
 $submittedAt  = $data['submittedAt'] ?? 0;
 
 // Honeypot
@@ -46,7 +47,7 @@ if (time() * 1000 - (int)$submittedAt < 2000) {
   exit;
 }
 
-if (!$humanConfirm) {
+if (!$humanConfirm && !$rgpdConsent) {
   http_response_code(400);
   echo json_encode(['error' => 'Merci de confirmer l\'envoi du formulaire.']);
   exit;
