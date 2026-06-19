@@ -1,0 +1,28 @@
+name: Deploy Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_SSH_PORT || 65002 }}
+          script: |
+            set -e
+            cd "${{ secrets.HOSTINGER_APP_PATH }}"
+            git fetch origin main
+            git reset --hard origin/main
+            npm ci
+            npm run build
+            if command -v pm2 >/dev/null 2>&1; then
+              pm2 restart makclean || pm2 restart all
+            fi

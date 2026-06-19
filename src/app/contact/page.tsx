@@ -132,6 +132,7 @@ export default function ContactPage() {
           location: locationLabel,
           honeypot,
           rgpdConsent: confirmRgpd,
+          humanConfirm: confirmRgpd,
           submittedAt,
         }),
       });
